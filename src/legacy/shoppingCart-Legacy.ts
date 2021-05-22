@@ -1,19 +1,19 @@
-interface CartItem {
+interface CartItemLegacy {
   name: string;
   price: number;
 }
 
-type OrderStatus = 'open' | 'closed';
+type OrderStatusLegacy = 'open' | 'closed';
 
-export class ShoppingCart {
-  private readonly _items: CartItem[] = [];
-  private _orderStatus: OrderStatus = 'open';
+export class ShoppingCartLegacy {
+  private readonly _items: CartItemLegacy[] = [];
+  private _orderStatus: OrderStatusLegacy = 'open';
 
-  get items(): Readonly<CartItem[]> {
+  get items(): Readonly<CartItemLegacy[]> {
     return this._items;
   }
 
-  get orderStatus(): OrderStatus {
+  get orderStatus(): OrderStatusLegacy {
     return this._orderStatus;
   }
 
@@ -21,7 +21,7 @@ export class ShoppingCart {
     return this._items.length;
   }
 
-  addItem(item: CartItem): void {
+  addItem(item: CartItemLegacy): void {
     this._items.push(item);
   }
 
@@ -63,10 +63,10 @@ export class ShoppingCart {
   }
 }
 
-const shoppingCart = new ShoppingCart();
+const shoppingCart = new ShoppingCartLegacy();
 
-const product: CartItem = { name: 'water bootle', price: 15 };
-const item: CartItem = { name: 'Playstation 5', price: 5000 };
+const product: CartItemLegacy = { name: 'water bootle', price: 15 };
+const item: CartItemLegacy = { name: 'Playstation 5', price: 5000 };
 
 console.log(shoppingCart.orderStatus);
 shoppingCart.addItem(product);
